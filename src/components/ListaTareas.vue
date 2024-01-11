@@ -3,6 +3,9 @@
     <h1>Lista Tareas</h1>
     <input v-model="tarea" type="text" placeholder="Tarea" />
     <button @click="agregarTarea">Añadir</button>
+    <li v-for="item in tareas" :key="item">
+      {{ item }}
+    </li>
   </div>
 </template>
 
@@ -17,8 +20,7 @@ export default {
   },
   methods: {
     agregarTarea() {
-      this.tareas.push(this.tarea),
-        console.log("Tareas realizadas:", this.tareas);
+      this.tareas.push(this.tarea);
     },
   },
 };
