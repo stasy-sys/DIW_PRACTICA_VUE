@@ -3,9 +3,11 @@
     <h1>Lista Tareas</h1>
     <input v-model="tarea" type="text" placeholder="Tarea" />
     <button @click="agregarTarea">Añadir</button>
-    <li v-for="item in tareas" :key="item">
-      {{ item }}
-    </li>
+    <p>Total tareas: {{ totalTareas }}</p>
+    <h5>Tareas</h5>
+      <li v-for="(tarea, id) in tareas" :key="id">
+        {{ id + 1 }} . {{ tarea }}
+      </li>
   </div>
 </template>
 
@@ -16,11 +18,13 @@ export default {
     return {
       tareas: Array(),
       tarea: "",
+      totalTareas: 0
     };
   },
   methods: {
     agregarTarea() {
       this.tareas.push(this.tarea);
+      this.totalTareas = this.tareas.length
     },
   },
 };
