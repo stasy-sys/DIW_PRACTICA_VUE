@@ -5,8 +5,8 @@
     <button @click="agregarTarea">Añadir</button>
     <p>Total tareas: {{ totalTareas }}</p>
     <h5>Tareas</h5>
-    <li v-for="(tarea, index) in tareas" :key="index">{{ id + 1 }} . {{ tarea }}
-        <button @click="eliminarTarea(index)">Eliminar Tarea</button>
+    <li v-for="(tarea, index) in tareas" :key="index">{{ index + 1 }} . {{ tarea }}
+        <button @click="eliminarTarea(index)">Eliminar</button>
     </li>
   </div>
 </template>
