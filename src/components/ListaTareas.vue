@@ -5,9 +5,9 @@
     <button @click="agregarTarea">Añadir</button>
     <p>Total tareas: {{ totalTareas }}</p>
     <h5>Tareas</h5>
-      <li v-for="(tarea, id) in tareas" :key="id">
-        {{ id + 1 }} . {{ tarea }}
-      </li>
+    <li v-for="(tarea, id) in tareas" :key="id">{{ id + 1 }} . {{ tarea }}
+        <button @click="eliminarTarea(id)">Eliminar Tarea</button>
+    </li>
   </div>
 </template>
 
@@ -24,8 +24,11 @@ export default {
   methods: {
     agregarTarea() {
       this.tareas.push(this.tarea);
-      this.totalTareas = this.tareas.length
+      this.totalTareas = this.tareas.length;
     },
+    eliminarTarea(id) {
+        this.tareas.splice(id, 1)
+    }
   },
 };
 </script>
